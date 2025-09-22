@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-country-search-input',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './country-search-input.css'
 })
 export class CountrySearchInput {
-
+  placeHolder = input("Buscar");
+  value = output<string>();
 }
