@@ -1,1 +1,8 @@
-<app-country-search-input></app-country-search-input>
+<app-country-search-input (value)="query.set($event)" placeHolder="Buscar por capital"></app-country-search-input>
+<app-country-list
+[countries]="countryResources.value() ?? []"
+[errorMessage]="countryResources.error()"
+[isEmpty]="countryResources.value()?.length === 0"
+[isLoading]="countryResources.isLoading()"
+>
+</app-country-list>

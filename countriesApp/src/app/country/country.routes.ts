@@ -4,6 +4,7 @@ import { CountryLayouts } from "./layouts/country-layouts/country-layouts";
 import { ByCapital } from "./pages/by-capital/by-capital";
 import { ByCountry } from "./pages/by-country/by-country";
 import { ByRegion } from "./pages/by-region/by-region";
+import { CountryPage } from "./pages/country-page/country-page";
 
 export const countryRoutes:Routes = [
   {
@@ -21,6 +22,10 @@ export const countryRoutes:Routes = [
       {
         path: 'by-region',
         component: ByRegion
+      },
+      {
+        path: 'code/:id',
+        component:CountryPage
       },
       {
         path: '**',

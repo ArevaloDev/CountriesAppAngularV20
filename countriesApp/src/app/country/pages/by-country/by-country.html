@@ -1,1 +1,9 @@
-<p>by-country works!</p>
+<app-country-search-input (value)="query.set($event)" placeHolder="buscar por país"></app-country-search-input>
+
+<app-country-list
+[countries]="countryResources.value() ?? []"
+[errorMessage]="countryResources.error()"
+[isEmpty]="countryResources.value()?.length === 0"
+[isLoading]="countryResources.isLoading()"
+>
+</app-country-list>

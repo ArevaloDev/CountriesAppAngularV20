@@ -1,0 +1,51 @@
+<section class="mt-5">
+  <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Icono</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Poblacion</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (country of countries(); track country.cca2; let index = $index) {
+        <tr>
+          <th>{{index + 1}}</th>
+          <td>{{country.flag}}</td>
+          <td>
+            <img class="w-10" [src]="country.flagSv" [alt]="country.name">
+          </td>
+          <td>{{country.name}}</td>
+          <td>{{country.population}}</td>
+          <td [routerLink]="['/country/code', country.cca2]" class="link-primary cursor-pointer">Mas informacion</td>
+        </tr>
+      }
+
+      @if(errorMessage()){
+        <td colspan="8" class="text-center">
+          {{errorMessage()}}
+        </td>
+      }
+
+      @if (countries().length === 0) {
+        <td colspan="8" class="text-center">
+          No se encontraron resultados
+        </td>
+      }
+
+      @if(isLoading()){
+        <tr>
+          <td colspan="8" class="text-center">
+            <span class="loading loading-spinner text-primary"></span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+</section>
