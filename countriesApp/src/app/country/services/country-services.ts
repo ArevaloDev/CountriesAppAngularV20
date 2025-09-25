@@ -36,9 +36,12 @@ export class CountryServices {
   searchById(code:string){
     return this.http.get<Countries[]>(`${this.API_URL}/alpha/${code}`).pipe(
       tap( response => console.log(response)),
+      map(response => CountryMapper.convertCountryToArray(response)),
+      map(response =>  response.at(0)),
       catchError(() => {
         return throwError(() =>  new Error("Error al buscar ppais por codigo"))
-      })
+      }),
+      tap(response => console.log(response))
     )
   }
 }
