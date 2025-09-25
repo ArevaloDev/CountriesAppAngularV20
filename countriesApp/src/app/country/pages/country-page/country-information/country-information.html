@@ -1,5 +1,5 @@
 
-<div class="mx-10">
+<section class="mx-10">
   <h1>{{country().name}}</h1>
   <h2 class="text-xl font-thin">Población: {{country().population}}</h2>
   <div class="stats shadow">
@@ -64,4 +64,17 @@
       <div class="stat-desc text-secondary">{{country().subRegion}}</div>
     </div>
   </div>
-</div>
+</section>
+
+
+<figure class="diff aspect-16/9" tabindex="0">
+  <div class="diff-item-1" role="img" tabindex="0">
+    <img [alt]="country().name" [src]="country().flagSv" />
+  </div>
+  <div class="diff-item-2" role="img">
+    <img
+    class="blur brightness-75"
+     [alt]="country().name" [src]="country().flagSv">
+  </div>
+  <div class="diff-resizer"></div>
+</figure>
